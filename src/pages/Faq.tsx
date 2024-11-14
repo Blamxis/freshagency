@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
 
 const Faq = () => {
   const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqs = t('faq.questions', { returnObjects: true });
+  const faqs = t('faq.questions', { returnObjects: true }) as FaqItem[];
 
   return (
     <div className="pt-16">
@@ -27,7 +32,7 @@ const Faq = () => {
       <section className="py-16 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-4">
-            {faqs.map((faq: any, index: number) => (
+            {faqs.map((faq, index) => (
               <div
                 key={index}
                 className="bg-card rounded-xl overflow-hidden border border-border hover:border-tiktok-red/50 transition-colors duration-300"
