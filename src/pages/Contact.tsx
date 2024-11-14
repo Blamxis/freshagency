@@ -18,7 +18,7 @@ const Contact = () => {
     try {
       const validatedData = contactFormSchema.parse(data);
       
-      const response = await fetch('https://formsubmit.co/ajax/fresh.agency@hotmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/gavinetm26@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

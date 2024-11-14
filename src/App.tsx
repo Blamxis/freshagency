@@ -21,7 +21,7 @@ function App() {
               <title>FreshAgency - Top TikTok Creator Management</title>
               <meta name="description" content="FreshAgency est une agence de gestion de créateurs TikTok spécialisée dans le gaming et le live streaming." />
               <meta name="viewport" content="width=device-width, initial-scale=1" />
-              <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';" />
+              <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formsubmit.co;" />
               <meta name="referrer" content="strict-origin-when-cross-origin" />
               <meta name="robots" content="index, follow" />
             </Helmet>

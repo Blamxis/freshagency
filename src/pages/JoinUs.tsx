@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
-import { ArrowRight, CheckCircle } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { joinFormSchema } from '../utils/validation';
+import React, { useState } from "react";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { joinFormSchema } from "../utils/validation";
+import ImageModal from '../components/ImageModal';
 
 const JoinUs = () => {
   const { t } = useTranslation();
-  const [formType, setFormType] = useState<'creator' | 'brand'>('creator');
+  const [formType, setFormType] = useState<"creator" | "brand">("creator");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const creatorBenefits = t('join.benefits.creator.items', { returnObjects: true }) as string[];
-  const brandBenefits = t('join.benefits.brand.items', { returnObjects: true }) as string[];
-  const agencySteps = t('join.agencyCode.steps', { returnObjects: true }) as string[];
+  const creatorBenefits = t("join.benefits.creator.items", {
+    returnObjects: true,
+  }) as string[];
+  const brandBenefits = t("join.benefits.brand.items", {
+    returnObjects: true,
+  }) as string[];
+  const agencySteps = t("join.agencyCode.steps", {
+    returnObjects: true,
+  }) as string[];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,27 +30,32 @@ const JoinUs = () => {
 
     try {
       const validatedData = joinFormSchema.parse(data);
-      
-      const response = await fetch('https://formsubmit.co/ajax/fresh.agency@hotmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          ...validatedData,
-          formType,
-          _subject: `Nouvelle candidature - ${formType === 'creator' ? 'Créateur' : 'Marque'}`,
-          _template: 'table'
-        })
-      });
+
+      const response = await fetch(
+        "https://formsubmit.co/ajax/gavinetm26@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...validatedData,
+            formType,
+            _subject: `Nouvelle candidature - ${
+              formType === "creator" ? "Créateur" : "Marque"
+            }`,
+            _template: "table",
+          }),
+        }
+      );
 
       if (response.ok) {
         setIsSubmitted(true);
         e.currentTarget.reset();
       }
     } catch (error) {
-      console.error('Erreur de validation:', error);
+      console.error("Erreur de validation:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -54,9 +67,11 @@ const JoinUs = () => {
       <section className="bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('join.hero.title')}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              {t("join.hero.title")}
+            </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              {t('join.hero.subtitle')}
+              {t("join.hero.subtitle")}
             </p>
           </div>
         </div>
@@ -69,23 +84,23 @@ const JoinUs = () => {
             <div className="flex justify-center space-x-4 mb-12">
               <button
                 className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
-                  formType === 'creator'
-                    ? 'bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white shadow-lg'
-                    : 'bg-card text-foreground hover:border-tiktok-red/50'
+                  formType === "creator"
+                    ? "bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white shadow-lg"
+                    : "bg-card text-foreground hover:border-tiktok-red/50"
                 } border border-border`}
-                onClick={() => setFormType('creator')}
+                onClick={() => setFormType("creator")}
               >
-                {t('join.options.creator')}
+                {t("join.options.creator")}
               </button>
               <button
                 className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
-                  formType === 'brand'
-                    ? 'bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white shadow-lg'
-                    : 'bg-card text-foreground hover:border-tiktok-red/50'
+                  formType === "brand"
+                    ? "bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white shadow-lg"
+                    : "bg-card text-foreground hover:border-tiktok-red/50"
                 } border border-border`}
-                onClick={() => setFormType('brand')}
+                onClick={() => setFormType("brand")}
               >
-                {t('join.options.brand')}
+                {t("join.options.brand")}
               </button>
             </div>
 
@@ -96,7 +111,10 @@ const JoinUs = () => {
               </h2>
               <div className="bg-card rounded-xl p-8 border border-border">
                 <ul className="space-y-4">
-                  {(formType === 'creator' ? creatorBenefits : brandBenefits).map((benefit, index) => (
+                  {(formType === "creator"
+                    ? creatorBenefits
+                    : brandBenefits
+                  ).map((benefit, index) => (
                     <li key={index} className="flex items-center">
                       <CheckCircle className="h-5 w-5 text-tiktok-red mr-3 flex-shrink-0" />
                       <span className="text-foreground">{benefit}</span>
@@ -107,18 +125,60 @@ const JoinUs = () => {
             </div>
 
             {/* Agency Code Steps */}
-            {formType === 'creator' && (
+            {formType === "creator" && (
               <div className="mb-12">
                 <div className="max-w-3xl mx-auto">
-                  <h2 className="text-3xl font-bold text-center mb-8">{t('join.agencyCode.title')}</h2>
+                  <h2 className="text-3xl font-bold text-center mb-8">
+                    {t("join.agencyCode.title")}
+                  </h2>
                   <div className="bg-card rounded-xl p-8 border border-border">
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                       {agencySteps.map((step, index) => (
-                        <div key={index} className="flex items-center gap-4">
-                          <div className="w-8 h-8 bg-tiktok-red text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                            {index + 1}
+                        <div
+                          key={index}
+                          className="flex flex-col sm:flex-row items-start gap-6 relative"
+                        >
+                          <div className="flex items-center sm:items-start gap-4 w-full">
+                            <div className="relative flex flex-col items-center">
+                              <div className="w-10 h-10 bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white rounded-full flex items-center justify-center font-bold z-10">
+                                {index + 1}
+                              </div>
+                              {index !== agencySteps.length - 1 && (
+                                <div className="absolute top-10 left-1/2 w-px h-24 sm:h-32 bg-gradient-to-b from-tiktok-red/50 to-transparent -translate-x-1/2" />
+                              )}
+                            </div>
+
+                            {/* Contenu de l'étape */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                                <p className="text-foreground text-lg flex-1">
+                                  {step}
+                                </p>
+                                <div className="w-full sm:w-48 h-auto flex-shrink-0">
+                                  <button
+                                    onClick={() =>
+                                      setSelectedImage(
+                                        `/images/step${index + 1}.png`
+                                      )
+                                    }
+                                    className="w-full group relative"
+                                  >
+                                    <img
+                                      src={`/images/step${index + 1}.png`}
+                                      alt={`Étape ${index + 1}`}
+                                      className="w-full rounded-lg border border-border shadow-sm group-hover:border-tiktok-red/50 transition-colors"
+                                      loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 rounded-lg transition-colors flex items-center justify-center">
+                                      <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                                        Agrandir
+                                      </span>
+                                    </div>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                          <p className="text-foreground text-lg">{step}</p>
                         </div>
                       ))}
                     </div>
@@ -127,8 +187,18 @@ const JoinUs = () => {
               </div>
             )}
 
+            {/* Modal pour l'image agrandie */}
+            <ImageModal
+              isOpen={!!selectedImage}
+              imageUrl={selectedImage || ""}
+              onClose={() => setSelectedImage(null)}
+            />
+
             {/* Application Form */}
-            <form onSubmit={handleSubmit} className="bg-card shadow-xl rounded-xl p-8 border border-border">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-card shadow-xl rounded-xl p-8 border border-border"
+            >
               {isSubmitted && (
                 <div className="mb-6 p-4 bg-green-100 border border-green-200 rounded-md flex items-center text-green-700">
                   <CheckCircle className="h-5 w-5 mr-2" />
@@ -139,8 +209,11 @@ const JoinUs = () => {
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">
-                      {t('join.form.firstName')}
+                    <label
+                      htmlFor="firstName"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      {t("join.form.firstName")}
                     </label>
                     <input
                       type="text"
@@ -151,8 +224,11 @@ const JoinUs = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">
-                      {t('join.form.lastName')}
+                    <label
+                      htmlFor="lastName"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      {t("join.form.lastName")}
                     </label>
                     <input
                       type="text"
@@ -165,8 +241,11 @@ const JoinUs = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    {t('join.form.email')}
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
+                    {t("join.form.email")}
                   </label>
                   <input
                     type="email"
@@ -177,11 +256,14 @@ const JoinUs = () => {
                   />
                 </div>
 
-                {formType === 'creator' ? (
+                {formType === "creator" ? (
                   <>
                     <div>
-                      <label htmlFor="tiktok" className="block text-sm font-medium text-foreground mb-2">
-                        {t('join.form.tiktok')}
+                      <label
+                        htmlFor="tiktok"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {t("join.form.tiktok")}
                       </label>
                       <input
                         type="text"
@@ -193,8 +275,11 @@ const JoinUs = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="agencyCode" className="block text-sm font-medium text-foreground mb-2">
-                        {t('join.form.agencyCode')}
+                      <label
+                        htmlFor="agencyCode"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {t("join.form.agencyCode")}
                       </label>
                       <input
                         type="text"
@@ -205,8 +290,11 @@ const JoinUs = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="referral" className="block text-sm font-medium text-foreground mb-2">
-                        {t('join.form.referral')}
+                      <label
+                        htmlFor="referral"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {t("join.form.referral")}
                       </label>
                       <input
                         type="text"
@@ -220,8 +308,11 @@ const JoinUs = () => {
                 ) : (
                   <>
                     <div>
-                      <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                        {t('join.form.company')}
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {t("join.form.company")}
                       </label>
                       <input
                         type="text"
@@ -232,8 +323,11 @@ const JoinUs = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">
-                        {t('join.form.budget')}
+                      <label
+                        htmlFor="budget"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        {t("join.form.budget")}
                       </label>
                       <select
                         id="budget"
@@ -241,18 +335,21 @@ const JoinUs = () => {
                         className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
                         required
                       >
-                        <option>{t('join.form.budgetRanges.select')}</option>
-                        <option>{t('join.form.budgetRanges.range1')}</option>
-                        <option>{t('join.form.budgetRanges.range2')}</option>
-                        <option>{t('join.form.budgetRanges.range3')}</option>
-                        <option>{t('join.form.budgetRanges.range4')}</option>
+                        <option>{t("join.form.budgetRanges.select")}</option>
+                        <option>{t("join.form.budgetRanges.range1")}</option>
+                        <option>{t("join.form.budgetRanges.range2")}</option>
+                        <option>{t("join.form.budgetRanges.range3")}</option>
+                        <option>{t("join.form.budgetRanges.range4")}</option>
                       </select>
                     </div>
                   </>
                 )}
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     {t(`join.form.about.${formType}`)}
                   </label>
                   <textarea
@@ -269,7 +366,7 @@ const JoinUs = () => {
                   disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-3 px-6 rounded-md hover:opacity-90 transition-opacity flex items-center justify-center group disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Envoi en cours...' : t('join.form.submit')}
+                  {isSubmitting ? "Envoi en cours..." : t("join.form.submit")}
                   <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
