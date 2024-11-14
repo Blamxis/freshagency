@@ -1,0 +1,242 @@
+{
+  "nav": {
+    "about": "À propos",
+    "joinUs": "Nous rejoindre",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "footer": {
+    "slogan": "Propulsez votre carrière TikTok avec les experts du gaming et du live streaming",
+    "quickLinks": "Navigation Rapide",
+    "contact": {
+      "title": "Restons en Contact"
+    },
+    "rights": "Tous droits réservés"
+  },
+  "about": {
+    "hero": {
+      "title": "Votre Partenaire TikTok Gaming & Live",
+      "subtitle": "Découvrez comment nous transformons la passion du gaming et du live streaming en carrières prospères"
+    },
+    "story": {
+      "title": "Notre Histoire",
+      "content1": "Fondée en avril 2024, FreshAgency est née d'une vision unique : celle d'un créateur comprenant les défis quotidiens de la communauté TikTok. En tant que partenaire officiel de TikTok, nous nous distinguons par notre approche personnalisée dans la gestion et l'optimisation des comptes gaming et live streaming.",
+      "content2": "Notre mission va au-delà de la simple gestion de talents. Nous nous engageons à transformer la passion de nos créateurs en carrière viable, en mettant l'accent sur la formation, l'accompagnement personnalisé et la maximisation des revenus, particulièrement dans le domaine du live streaming. Notre expertise spécifique dans le gaming et les lives nous permet d'offrir un accompagnement sur mesure, adapté aux besoins uniques de chaque créateur.",
+      "content3": "Chez FreshAgency, nous ne sommes pas qu'une agence - nous sommes une communauté dynamique où chaque créateur trouve sa place. Notre engagement envers l'excellence et notre compréhension approfondie de l'écosystème TikTok nous permettent de guider nos talents vers le succès, tout en maintenant les plus hauts standards de sécurité et de professionnalisme."
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "subtitle": "Une équipe passionnée à votre service",
+      "roles": {
+        "founder": "Créateur & Fondateur",
+        "manager": "Manager"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "FreshAgency - Agence TikTok Gaming & Live",
+      "subtitle": "Propulsez votre carrière de créateur TikTok avec notre expertise en gaming et live streaming",
+      "cta": "Rejoignez-nous"
+    },
+    "services": {
+      "title": "Nos Services",
+      "subtitle": "Des solutions complètes pour votre succès sur TikTok",
+      "items": [
+        {
+          "title": "Protection & Sécurité",
+          "description": "Sécurisation de votre compte et protection contre les arnaques"
+        },
+        {
+          "title": "Optimisation des Revenus",
+          "description": "Maximisation de vos gains via le live et les partenariats"
+        },
+        {
+          "title": "Gestion de Compte",
+          "description": "Accompagnement personnalisé pour votre croissance"
+        },
+        {
+          "title": "Analyse de Performance",
+          "description": "Suivi détaillé de vos statistiques et progression"
+        },
+        {
+          "title": "Networking",
+          "description": "Accès à notre communauté de créateurs"
+        },
+        {
+          "title": "Formation",
+          "description": "Coaching personnalisé pour améliorer vos performances"
+        },
+        {
+          "title": "Gaming Pro",
+          "description": "Accompagnement spécialisé pour les streamers gaming"
+        },
+        {
+          "title": "Création de Contenu",
+          "description": "Conseils et stratégies pour votre contenu"
+        },
+        {
+          "title": "Analyse de Marché",
+          "description": "Études des tendances et opportunités"
+        }
+      ]
+    },
+    "eligibility": {
+      "title": "Suis-je éligible ?",
+      "subtitle": "Découvrez si vous pouvez rejoindre notre agence",
+      "criteria": [
+        "Habiter en France ou en Belgique",
+        "Avoir plus de 18 ans",
+        "Avoir entre 0 et 200 000 abonnés sur ton compte",
+        "Être Actif en LIVE plusieurs fois par semaine",
+        "Suivre les règles de l'agence et de TikTok"
+      ]
+    },
+    "certifiedStreamers": {
+      "title": "Nos Streamers Gaming Certifiés",
+      "subtitle": "Découvrez nos talents gaming professionnels",
+      "blyk0": {
+        "description": "Streamer gaming spécialisé dans Minecraft, GTA V, Fortnite et les lives interactifs"
+      },
+      "freshSpam": {
+        "description": "Streamer certifié expert en Minecraft et lives interactifs"
+      }
+    },
+    "cta": {
+      "title": "Prêt à nous rejoindre ?"
+    }
+  },
+  "join": {
+    "hero": {
+      "title": "Rejoignez FreshAgency",
+      "subtitle": "Faites passer votre carrière TikTok au niveau supérieur"
+    },
+    "options": {
+      "creator": "Je suis Créateur",
+      "brand": "Je suis une Marque"
+    },
+    "benefits": {
+      "creator": {
+        "title": "Avantages Créateurs",
+        "items": [
+          "Accompagnement personnalisé",
+          "Optimisation des revenus",
+          "Protection contre les arnaques",
+          "Formation professionnelle",
+          "Accès à notre communauté"
+        ]
+      },
+      "brand": {
+        "title": "Avantages Marques",
+        "items": [
+          "Accès à notre réseau de créateurs",
+          "Campagnes sur mesure",
+          "Analyse de performance",
+          "Reporting détaillé",
+          "Support dédié"
+        ]
+      }
+    },
+    "agencyCode": {
+      "title": "OÙ TROUVER LE CODE AGENCE ?",
+      "steps": [
+        "Cliquez sur votre profil en bas à droite",
+        "Cliquez sur les 3 points en haut à droite",
+        "Sélectionnez \"LIVE\"",
+        "Cliquez sur \"Centre d'agence\"",
+        "Entrez le code d'invitation"
+      ]
+    },
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "tiktok": "Compte TikTok",
+      "agencyCode": "Code Agence",
+      "referral": "@ de ton parrain sur TikTok",
+      "company": "Nom de l'entreprise",
+      "budget": "Budget",
+      "budgetRanges": {
+        "select": "Sélectionnez votre budget",
+        "range1": "5 000€ - 10 000€",
+        "range2": "10 000€ - 25 000€",
+        "range3": "25 000€ - 50 000€",
+        "range4": "50 000€ +"
+      },
+      "about": {
+        "creator": "Parlez-nous de votre contenu",
+        "brand": "Parlez-nous de votre projet"
+      },
+      "submit": "Envoyer ma candidature"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contactez-nous",
+      "subtitle": "Notre équipe est à votre écoute pour répondre à toutes vos questions"
+    },
+    "info": {
+      "email": {
+        "title": "Email",
+        "details": "fresh.agency@hotmail.com",
+        "description": "Nous vous répondons sous 24-48h"
+      },
+      "phone": {
+        "title": "WhatsApp",
+        "details": "07 68 14 14 79",
+        "description": "Du lundi au vendredi de 9h à 18h"
+      },
+      "office": {
+        "title": "Fresh Agency",
+        "details": "3 Rue Claude Debussy",
+        "description": "91000 Evry-Courcouronnes"
+      }
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "tiktok": "Compte TikTok",
+      "subject": {
+        "label": "Sujet",
+        "select": "Sélectionnez un sujet",
+        "join": "Rejoindre l'agence",
+        "partnership": "Proposition de partenariat",
+        "support": "Support technique",
+        "other": "Autre demande"
+      },
+      "message": "Message",
+      "submit": "Envoyer le message"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Questions Fréquentes",
+      "subtitle": "Trouvez les réponses à vos questions"
+    },
+    "questions": [
+      {
+        "question": "Est-ce payant ?",
+        "answer": "Non, c'est totalement gratuit il n'y a pas de lien financier entre l'agence et les créateurs, ils conservent 100% de leur revenus."
+      },
+      {
+        "question": "Avez-vous accès à mon compte ?",
+        "answer": "Non, nous pouvons uniquement voir vos statistiques de live, nous n'avons aucun contrôle sur votre compte."
+      },
+      {
+        "question": "Puis-je changer d'avis ?",
+        "answer": "Oui, tu peux partir à tout moment et quitter le programme si tu le souhaites."
+      },
+      {
+        "question": "Où puis-je vous contacter ?",
+        "answer": "En DM sur TikTok : @fresh.agency\nMessage whatsapp : 0768141479\nMail : Fresh.agency@hotmail.com"
+      }
+    ],
+    "stillHaveQuestions": {
+      "title": "Encore des questions ?",
+      "subtitle": "N'hésitez pas à nous contacter directement",
+      "cta": "Contactez-nous"
+    }
+  }
+}
