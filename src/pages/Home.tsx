@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { 
-  ArrowRight, 
-  Star, 
-  Shield, 
-  DollarSign, 
+import {
+  ArrowRight,
+  Star,
+  Shield,
+  DollarSign,
   UserCog,
   Calculator,
   Users2,
@@ -71,7 +71,7 @@ const Home = () => {
       name: 'Fresh Spam',
       tiktok: '@fresh_spam',
       tiktokUrl: 'https://www.tiktok.com/@fresh_spam?lang=fr',
-      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/e471b76be3ef86ac0b7115edd253f45d~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=53417&refresh_token=a9851f19ab2040515c3c2694b6ce09c6&x-expires=1731765600&x-signature=RtFhpBOwwRDXwAu3dLLPvOJ1fJA%3D&shp=a5d48078&shcp=81f88b70',
+      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/e471b76be3ef86ac0b7115edd253f45d~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=81846&refresh_token=0a9467138a1202a4d68c6a44abcd4838&x-expires=1733248800&x-signature=oIvlWF9GnJc%2BeiLvVSq1UefjZww%3D&shp=a5d48078&shcp=81f88b70',
       description: t('home.certifiedStreamers.freshSpam.description'),
       games: ['Minecraft', 'Live Interactif'],
       certified: true
@@ -80,10 +80,10 @@ const Home = () => {
       name: 'Blyk',
       tiktok: '@blyk0_0',
       tiktokUrl: 'https://www.tiktok.com/@blyk0_0?lang=fr',
-      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/2ab491492c935632950fe7544e5a36d4~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=47665&refresh_token=f2dc596d0d6a23bd1491011c95284908&x-expires=1731765600&x-signature=QQjq5kVYRtbwnDOZtDam99kkwDo%3D&shp=a5d48078&shcp=81f88b70',
+      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/2ab491492c935632950fe7544e5a36d4~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=63619&refresh_token=7429ace1b126545f5ef6898aa4c43af8&x-expires=1733248800&x-signature=MOhe%2FnZMRbCN9G1n0eHYMaPiRNw%3D&shp=a5d48078&shcp=81f88b70',
       description: t('home.certifiedStreamers.blyk0.description'),
       games: ['Minecraft', 'GTA V', 'Fortnite', 'Live Interactif'],
-      certified: false
+      certified: true
     }
   ];
 
