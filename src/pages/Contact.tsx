@@ -33,7 +33,7 @@ const Contact = () => {
       setIsSubmitted(true);
 
       // Envoyer la requête
-      const response = await fetch('https://formsubmit.co/ajax/gavinetm26@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/fresh.agency@hotmail.com ', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
