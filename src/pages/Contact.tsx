@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { contactFormSchema } from '../utils/validation';
@@ -7,6 +7,17 @@ const Contact = () => {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Référence au formulaire
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Masquer automatiquement le message de confirmation après 3 secondes
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => setIsSubmitted(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,26 +28,35 @@ const Contact = () => {
 
     try {
       const validatedData = contactFormSchema.parse(data);
-      
+
+      // Affichez immédiatement le message
+      setIsSubmitted(true);
+
+      // Envoyer la requête
       const response = await fetch('https://formsubmit.co/ajax/gavinetm26@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           ...validatedData,
           _subject: `Nouveau message de contact - ${validatedData.subject}`,
-          _template: 'table'
-        })
+          _template: 'table',
+        }),
       });
 
       if (response.ok) {
-        setIsSubmitted(true);
-        e.currentTarget.reset();
+        // Réinitialiser le formulaire après un envoi réussi
+        if (formRef.current) {
+          formRef.current.reset();
+        }
+      } else {
+        console.error('Erreur côté serveur:', await response.text());
       }
     } catch (error) {
       console.error('Erreur de validation:', error);
+      setIsSubmitted(false); // Annule la confirmation si une erreur se produit
     } finally {
       setIsSubmitting(false);
     }
@@ -96,7 +116,11 @@ const Contact = () => {
       {/* Contact Form */}
       <section className="py-16 bg-accent">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <form onSubmit={handleSubmit} className="bg-card shadow-xl rounded-xl p-8 border border-border">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="bg-card shadow-xl rounded-xl p-8 border border-border"
+          >
             <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
               {t('contact.form.title')}
             </h2>

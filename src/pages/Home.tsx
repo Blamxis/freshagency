@@ -98,7 +98,7 @@ const Home = () => {
       name: 'Blyk',
       tiktok: '@blyk0_0',
       tiktokUrl: 'https://www.tiktok.com/@blyk0_0?lang=fr',
-      image: '/public/images/ppblyk.jpeg',
+      image: '/public/images/blykpp.jpeg',
       description: t('home.certifiedStreamers.blyk0.description'),
       games: ['Minecraft', 'GTA V', 'Fortnite', 'Live Interactif'],
       certified: true
