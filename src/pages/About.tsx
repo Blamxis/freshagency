@@ -29,7 +29,7 @@ const About = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-20">
+      <section className="bg-gradient-to-r from-blue-300 to-blue-700 text-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('about.hero.title')}</h1>
@@ -65,11 +65,13 @@ const About = () => {
             {team.map((member, index) => (
               <div key={index} className="text-center group">
                 <div className="relative mb-4 mx-auto">
-                  <div className="w-48 h-48 rounded-full overflow-hidden mx-auto bg-accent border-2 border-transparent group-hover:border-tiktok-red transition-colors duration-300">
+                  {/* Circle Container */}
+                  <div className="w-48 h-48 rounded-full overflow-hidden mx-auto bg-accent border-2 border-transparent group-hover:border-tiktok-blue transition-colors duration-300">
+                    {/* Ensure image fills the circle */}
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
@@ -80,6 +82,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

@@ -59,7 +59,9 @@
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-tiktok-red to-tiktok-blue;
+  background-image: linear-gradient(to right, #1e3a8a, #3b82f6); /* Couleurs bleues */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Rendre le remplissage transparent */
 }
 
 .gradient-border {

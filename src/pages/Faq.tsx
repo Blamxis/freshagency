@@ -17,7 +17,7 @@ const Faq = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-20">
+      <section className="bg-gradient-to-r from-blue-300 to-blue-700 text-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('faq.hero.title')}</h1>
@@ -35,7 +35,7 @@ const Faq = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl overflow-hidden border border-border hover:border-tiktok-red/50 transition-colors duration-300"
+                className="bg-card rounded-xl overflow-hidden border border-border hover:border-tiktok-blue/50 transition-colors duration-300"
               >
                 <button
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-accent/50 transition-colors"
@@ -43,9 +43,9 @@ const Faq = () => {
                 >
                   <span className="font-medium text-foreground">{faq.question}</span>
                   {openIndex === index ? (
-                    <ChevronUp className="h-5 w-5 text-tiktok-red" />
+                    <ChevronUp className="h-5 w-5 text-tiktok-blue" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-tiktok-red" />
+                    <ChevronDown className="h-5 w-5 text-tiktok-blue" />
                   )}
                 </button>
                 {openIndex === index && (
@@ -70,7 +70,7 @@ const Faq = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-tiktok-red to-tiktok-blue hover:opacity-90 transition-opacity"
+            className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black bg-gradient-to-r from-tiktok-blue to-tiktok-blue hover:opacity-90 transition-opacity"
           >
             {t('faq.stillHaveQuestions.cta')}
           </Link>

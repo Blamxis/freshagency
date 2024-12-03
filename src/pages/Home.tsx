@@ -108,7 +108,7 @@ const Home = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-12 sm:py-16 lg:py-20">
+      <section className="relative bg-gradient-to-r from-blue-300 to-blue-700 text-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
@@ -152,9 +152,9 @@ const Home = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="p-6 bg-card rounded-xl border border-border hover:border-tiktok-red/50 transition-colors"
+                className="p-6 bg-card rounded-xl border border-blue-500 hover:border-blue-300 transition-colors" // Changer border ici
               >
-                <service.icon className="h-8 w-8 text-tiktok-red mb-4" />
+                <service.icon className="h-8 w-8 text-blue-500 mb-4 hover:text-blue-300" /> {/* Changer la couleur de l'icône ici */}
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground">
                   {service.title}
                 </h3>
@@ -178,11 +178,11 @@ const Home = () => {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="bg-card rounded-xl p-6 sm:p-8 border border-border">
+            <div className="bg-card rounded-xl p-6 sm:p-8 border border-blue-500 hover:border-blue-300 transition-colors"> {/* Changer border ici */}
               <ul className="space-y-4">
                 {(t('home.eligibility.criteria', { returnObjects: true }) as string[]).map((criterion, index) => (
                   <li key={index} className="flex items-center text-foreground">
-                    <Star className="h-5 w-5 text-tiktok-red mr-3 flex-shrink-0" />
+                    <Star className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0 hover:text-blue-300" /> {/* Changer la couleur de l'icône ici */}
                     <span>{criterion}</span>
                   </li>
                 ))}
@@ -208,7 +208,7 @@ const Home = () => {
             {certifiedStreamers.map((streamer, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl overflow-hidden border border-border hover:border-tiktok-red/50 transition-colors"
+                className="bg-card rounded-xl overflow-hidden border border-blue-500 hover:border-blue-300 transition-colors" // Changer border ici
               >
                 <div className="aspect-w-16 aspect-h-9">
                   <img
@@ -224,7 +224,7 @@ const Home = () => {
                         {streamer.name}
                       </h3>
                       {streamer.certified && (
-                        <BadgeCheck className="h-5 w-5 text-tiktok-blue ml-2" />
+                        <BadgeCheck className="h-5 w-5 text-blue-500 ml-2 hover:text-blue-300" />
                       )}
                     </div>
                     <a
@@ -257,7 +257,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-12 sm:py-16">
+      <section className="relative bg-gradient-to-r from-blue-300 to-blue-700 text-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             {t('home.cta.title')}

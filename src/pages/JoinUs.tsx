@@ -32,7 +32,7 @@ const JoinUs = () => {
       const validatedData = joinFormSchema.parse(data);
 
       const response = await fetch(
-        "https://formsubmit.co/ajax/gavinetm26@gmail.com",
+        "https://formsubmit.co/ajax/fresh.agency@hotmail.com",
         {
           method: "POST",
           headers: {
@@ -42,9 +42,7 @@ const JoinUs = () => {
           body: JSON.stringify({
             ...validatedData,
             formType,
-            _subject: `Nouvelle candidature - ${
-              formType === "creator" ? "Créateur" : "Marque"
-            }`,
+            _subject: `Nouvelle candidature - ${formType === "creator" ? "Créateur" : "Marque"}`,
             _template: "table",
           }),
         }
@@ -64,7 +62,7 @@ const JoinUs = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-20">
+      <section className="bg-gradient-to-r from-blue-300 to-blue-700 text-white py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -78,29 +76,27 @@ const JoinUs = () => {
       </section>
 
       {/* Form Type Selection */}
-      <section className="py-16 bg-background">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="flex justify-center space-x-4 mb-12">
               <button
-                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
-                  formType === "creator"
-                    ? "bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white shadow-lg"
-                    : "bg-card text-foreground hover:border-tiktok-red/50"
-                } border border-border`}
+                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${formType === "creator"
+                  ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
+                  : "bg-card text-foreground hover:bg-blue-500"
+                  } border border-border`}
                 onClick={() => setFormType("creator")}
               >
-                {t("join.options.creator")}
+                Créateur
               </button>
               <button
-                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
-                  formType === "brand"
-                    ? "bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white shadow-lg"
-                    : "bg-card text-foreground hover:border-tiktok-red/50"
-                } border border-border`}
+                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${formType === "brand"
+                  ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
+                  : "bg-card text-foreground hover:bg-blue-500"
+                  } border border-border`}
                 onClick={() => setFormType("brand")}
               >
-                {t("join.options.brand")}
+                Marque
               </button>
             </div>
 
@@ -116,7 +112,7 @@ const JoinUs = () => {
                     : brandBenefits
                   ).map((benefit, index) => (
                     <li key={index} className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-tiktok-red mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-tiktok-blue mr-3 flex-shrink-0" />
                       <span className="text-foreground">{benefit}</span>
                     </li>
                   ))}
@@ -129,7 +125,7 @@ const JoinUs = () => {
               <div className="mb-12">
                 <div className="max-w-3xl mx-auto">
                   <h2 className="text-3xl font-bold text-center mb-8">
-                    {t("join.agencyCode.title")}
+                    Étapes pour le code agence
                   </h2>
                   <div className="bg-card rounded-xl p-8 border border-border">
                     <div className="space-y-8">
@@ -140,7 +136,7 @@ const JoinUs = () => {
                         >
                           <div className="flex items-center sm:items-start gap-4 w-full">
                             <div className="relative flex flex-col items-center">
-                              <div className="w-10 h-10 bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white rounded-full flex items-center justify-center font-bold z-10">
+                              <div className="w-10 h-10 bg-gradient-to-r from-tiktok-blue to-tiktok-blue text-black rounded-full flex items-center justify-center font-bold z-10">
                                 {index + 1}
                               </div>
                               {index !== agencySteps.length - 1 && (
@@ -148,7 +144,7 @@ const JoinUs = () => {
                               )}
                             </div>
 
-                            {/* Contenu de l'étape */}
+                            {/* Step Content */}
                             <div className="flex-1 min-w-0">
                               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                                 <p className="text-foreground text-lg flex-1">
@@ -187,7 +183,7 @@ const JoinUs = () => {
               </div>
             )}
 
-            {/* Modal pour l'image agrandie */}
+            {/* Image Modal */}
             <ImageModal
               isOpen={!!selectedImage}
               imageUrl={selectedImage || ""}
@@ -213,13 +209,14 @@ const JoinUs = () => {
                       htmlFor="firstName"
                       className="block text-sm font-medium text-foreground mb-2"
                     >
-                      {t("join.form.firstName")}
+                      Prénom
                     </label>
                     <input
                       type="text"
                       id="firstName"
                       name="firstName"
-                      className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
+                      placeholder="Votre prénom"
+                      className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                       required
                     />
                   </div>
@@ -228,13 +225,14 @@ const JoinUs = () => {
                       htmlFor="lastName"
                       className="block text-sm font-medium text-foreground mb-2"
                     >
-                      {t("join.form.lastName")}
+                      Nom
                     </label>
                     <input
                       type="text"
                       id="lastName"
                       name="lastName"
-                      className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
+                      placeholder="Votre nom"
+                      className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                       required
                     />
                   </div>
@@ -245,104 +243,96 @@ const JoinUs = () => {
                     htmlFor="email"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    {t("join.form.email")}
+                    Email
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
+                    placeholder="votre.email@example.com"
+                    className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                     required
                   />
                 </div>
 
-                {formType === "creator" ? (
+                {formType === "creator" && (
                   <>
                     <div>
                       <label
-                        htmlFor="tiktok"
+                        htmlFor="pseudoTikTok"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {t("join.form.tiktok")}
+                        Pseudo TikTok
                       </label>
                       <input
                         type="text"
-                        id="tiktok"
-                        name="tiktok"
-                        placeholder="@"
-                        className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
+                        id="pseudoTikTok"
+                        name="pseudoTikTok"
+                        placeholder="Votre pseudo TikTok"
+                        className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                         required
                       />
                     </div>
                     <div>
                       <label
-                        htmlFor="agencyCode"
+                        htmlFor="parrain"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {t("join.form.agencyCode")}
+                        Parrain
                       </label>
                       <input
                         type="text"
-                        id="agencyCode"
-                        name="agencyCode"
-                        className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
+                        id="parrain"
+                        name="parrain"
+                        placeholder="Pseudo de votre parrain"
+                        className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                         required
                       />
                     </div>
                     <div>
                       <label
-                        htmlFor="referral"
+                        htmlFor="codeAgence"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {t("join.form.referral")}
+                        Code Agence
                       </label>
                       <input
                         type="text"
-                        id="referral"
-                        name="referral"
-                        placeholder="@"
-                        className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
+                        id="codeAgence"
+                        name="codeAgence"
+                        placeholder="Entrez votre code agence"
+                        className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
+                        required
                       />
                     </div>
                   </>
-                ) : (
-                  <>
-                    <div>
-                      <label
-                        htmlFor="company"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        {t("join.form.company")}
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="budget"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        {t("join.form.budget")}
-                      </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
-                        required
-                      >
-                        <option>{t("join.form.budgetRanges.select")}</option>
-                        <option>{t("join.form.budgetRanges.range1")}</option>
-                        <option>{t("join.form.budgetRanges.range2")}</option>
-                        <option>{t("join.form.budgetRanges.range3")}</option>
-                        <option>{t("join.form.budgetRanges.range4")}</option>
-                      </select>
-                    </div>
-                  </>
+                )}
+
+                {formType === "brand" && (
+                  <div>
+                    <label
+                      htmlFor="investissement"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      Investissement
+                    </label>
+                    <select
+                      id="investissement"
+                      name="investissement"
+                      className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
+                      required
+                    >
+                      <option value="">Sélectionnez un montant</option>
+                      <option value="0-500">0 € - 500 €</option>
+                      <option value="500-1000">500 € - 1000 €</option>
+                      <option value="1000-5000">1000 € - 5000 €</option>
+                      <option value="5000-10000">5000 € - 10000 €</option>
+                      <option value="10000-20000">10000 € - 20000 €</option>
+                      <option value="20000-30000">20000 € - 30000 €</option>
+                      <option value="30000-40000">30000 € - 40000 €</option>
+                      <option value="40000-50000">40000 € - 50000 €</option>
+                    </select>
+                  </div>
                 )}
 
                 <div>
@@ -350,24 +340,24 @@ const JoinUs = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    {t(`join.form.about.${formType}`)}
+                    Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={6}
-                    className="w-full px-4 py-2 bg-background border border-border rounded-md focus:ring-2 focus:ring-tiktok-red focus:border-transparent transition-all"
+                    rows={4}
+                    placeholder="Écrivez votre message ici..."
+                    className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                     required
                   ></textarea>
                 </div>
-
+                
                 <button
                   type="submit"
+                  className="w-full py-2 px-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-md hover:bg-blue-600 transition duration-200"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-3 px-6 rounded-md hover:opacity-90 transition-opacity flex items-center justify-center group disabled:opacity-50"
                 >
-                  {isSubmitting ? "Envoi en cours..." : t("join.form.submit")}
-                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+                  {isSubmitting ? "Envoi en cours..." : "Soumettre"}
                 </button>
               </div>
             </form>

@@ -13,11 +13,36 @@
     },
     "rights": "All rights reserved"
   },
+  "about": {
+    "hero": {
+      "title": "Your TikTok Gaming & Live Partner",
+      "subtitle": "Learn how we turn gaming and live streaming passion into thriving careers"
+    },
+    "story": {
+      "title": "Our Story",
+      "content1": "Founded in April 2024, FreshAgency was born from a unique vision: that of a creator who understands the daily challenges of the TikTok community. As an official TikTok partner, we stand out for our personalized approach to managing and optimizing gaming and live streaming accounts.",
+      "content2": "Our mission goes beyond mere talent management. We are committed to transforming our creators' passion into viable careers, focusing on training, personalized support, and revenue maximization, particularly in the live streaming space. Our specific expertise in gaming and lives enables us to offer tailored support to meet the unique needs of each creator.",
+      "content3": "At FreshAgency, we are not just an agency—we are a dynamic community where every creator finds their place. Our commitment to excellence and our in-depth understanding of the TikTok ecosystem allow us to guide our talents to success while maintaining the highest standards of safety and professionalism."
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "A passionate team at your service",
+      "roles": {
+        "founder": "Creator & Founder",
+        "manager": "Manager"
+      }
+    }
+  },
   "home": {
     "hero": {
       "title": {
         "prefix": "Agency ",
-        "words": ["TikTok", "Gaming", "Interactive Live", "Live Match"]
+        "words": [
+          "TikTok",
+          "Gaming",
+          "Interactive Live",
+          "Live Match"
+        ]
       },
       "subtitle": "Boost your TikTok creator career with our gaming and live streaming expertise",
       "cta": "Join Us"
@@ -87,6 +112,139 @@
     },
     "cta": {
       "title": "Ready to join us?"
+    }
+  },
+  "join": {
+    "hero": {
+      "title": "Join FreshAgency",
+      "subtitle": "Take your TikTok career to the next level"
+    },
+    "options": {
+      "creator": "I am a Creator",
+      "brand": "I am a Brand"
+    },
+    "benefits": {
+      "creator": {
+        "title": "Creator Benefits",
+        "items": [
+          "Personalized support",
+          "Revenue optimization",
+          "Scam protection",
+          "Professional training",
+          "Access to our community"
+        ]
+      },
+      "brand": {
+        "title": "Brand Benefits",
+        "items": [
+          "Access to our creator network",
+          "Tailored campaigns",
+          "Performance analysis",
+          "Detailed reporting",
+          "Dedicated support"
+        ]
+      }
+    },
+    "agencyCode": {
+      "title": "WHERE TO FIND THE AGENCY CODE?",
+      "steps": [
+        "Click on your profile at the bottom right",
+        "Click on the three dots at the top right",
+        "Select 'LIVE'",
+        "Click on 'Agency Center'",
+        "Enter the invitation code"
+      ]
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "tiktok": "TikTok Account",
+      "agencyCode": "Agency Code",
+      "referral": "Referrer’s TikTok @",
+      "company": "Company Name",
+      "budget": "Budget",
+      "budgetRanges": {
+        "select": "Select your budget",
+        "range1": "€5,000 - €10,000",
+        "range2": "€10,000 - €25,000",
+        "range3": "€25,000 - €50,000",
+        "range4": "€50,000+"
+      },
+      "about": {
+        "creator": "Tell us about your content",
+        "brand": "Tell us about your project"
+      },
+      "submit": "Submit my application"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Our team is here to answer all your questions"
+    },
+    "info": {
+      "email": {
+        "title": "Email",
+        "details": "fresh.agency@hotmail.com",
+        "description": "We respond within 24-48 hours"
+      },
+      "phone": {
+        "title": "WhatsApp",
+        "details": "07 68 14 14 79",
+        "description": "Monday to Friday, 9 AM - 6 PM"
+      },
+      "office": {
+        "title": "Fresh Agency",
+        "details": "3 Rue Claude Debussy",
+        "description": "91000 Evry-Courcouronnes"
+      }
+    },
+    "form": {
+      "title": "Send us a message",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "tiktok": "TikTok Account",
+      "subject": {
+        "label": "Subject",
+        "select": "Select a subject",
+        "join": "Join the agency",
+        "partnership": "Partnership proposal",
+        "support": "Technical support",
+        "other": "Other inquiry"
+      },
+      "message": "Message",
+      "submit": "Send Message"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to your questions"
+    },
+    "questions": [
+      {
+        "question": "Is it free?",
+        "answer": "Yes, it is completely free. There is no financial link between the agency and creators; they keep 100% of their income."
+      },
+      {
+        "question": "Do you have access to my account?",
+        "answer": "No, we can only view your live statistics. We have no control over your account."
+      },
+      {
+        "question": "Can I change my mind?",
+        "answer": "Yes, you can leave the program at any time if you wish."
+      },
+      {
+        "question": "Where can I contact you?",
+        "answer": "Via DM on TikTok: @fresh.agency\nWhatsApp: 0768141479\nEmail: fresh.agency@hotmail.com"
+      }
+    ],
+    "stillHaveQuestions": {
+      "title": "Still have questions?",
+      "subtitle": "Feel free to contact us directly",
+      "cta": "Contact Us"
     }
   }
 }
