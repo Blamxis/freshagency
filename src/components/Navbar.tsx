@@ -1,29 +1,41 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, TrendingUp } from 'lucide-react';
-import { ThemeToggle } from './ThemeToggle';
-import { LanguageToggle } from './LanguageToggle';
-import { useTranslation } from 'react-i18next';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
   const navItems = [
-    { name: t('nav.about'), path: '/about' },
-    { name: t('nav.joinUs'), path: '/join' },
-    { name: t('nav.faq'), path: '/faq' },
-    { name: t('nav.contact'), path: '/contact' },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.joinUs"), path: "/join" },
+    { name: t("nav.faq"), path: "/faq" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
     <nav className="bg-background/80 backdrop-blur-md border-b border-border fixed w-full z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
+          {/* Logo Section */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-              <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-tiktok-red" />
-              <span className="font-bold text-lg sm:text-xl gradient-text">FreshAgency</span>
+            <Link
+              to="/"
+              className="flex items-center space-x-2"
+              onClick={() => setIsOpen(false)}
+            >
+              {/* Use absolute path to public folder */}
+              <img
+                src="/images/logofreshagency.png"
+                alt="Fresh Agency Logo"
+                className="h-12 sm:h-16 w-auto"
+              />
+              <span className="font-bold text-lg sm:text-xl gradient-text">
+                FreshAgency
+              </span>
             </Link>
           </div>
 
@@ -60,7 +72,10 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
+          }`}
+      >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-b border-border">
           {navItems.map((item) => (
             <Link

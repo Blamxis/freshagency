@@ -1,9 +1,9 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  ArrowRight,
-  Star,
-  Shield,
-  DollarSign,
+import { 
+  ArrowRight, 
+  Shield, 
+  DollarSign, 
   UserCog,
   Calculator,
   Users2,
@@ -11,14 +11,32 @@ import {
   Gamepad2,
   PaintBucket,
   LineChart,
+  Star,
   BadgeCheck
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TypewriterText from '../components/TypewriterText';
+
+interface Service {
+  icon: React.ComponentType<any>;
+  title: string;
+  description: string;
+}
+
+interface Streamer {
+  name: string;
+  tiktok: string;
+  tiktokUrl: string;
+  image: string;
+  description: string;
+  games: string[];
+  certified?: boolean;
+}
 
 const Home = () => {
   const { t } = useTranslation();
 
-  const services = [
+  const services: Service[] = [
     {
       icon: Shield,
       title: t('home.services.items.0.title'),
@@ -66,12 +84,12 @@ const Home = () => {
     }
   ];
 
-  const certifiedStreamers = [
+  const certifiedStreamers: Streamer[] = [
     {
       name: 'Fresh Spam',
       tiktok: '@fresh_spam',
       tiktokUrl: 'https://www.tiktok.com/@fresh_spam?lang=fr',
-      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/e471b76be3ef86ac0b7115edd253f45d~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=81846&refresh_token=0a9467138a1202a4d68c6a44abcd4838&x-expires=1733248800&x-signature=oIvlWF9GnJc%2BeiLvVSq1UefjZww%3D&shp=a5d48078&shcp=81f88b70',
+      image: '/public/images/freshpp.jpeg',
       description: t('home.certifiedStreamers.freshSpam.description'),
       games: ['Minecraft', 'Live Interactif'],
       certified: true
@@ -80,7 +98,7 @@ const Home = () => {
       name: 'Blyk',
       tiktok: '@blyk0_0',
       tiktokUrl: 'https://www.tiktok.com/@blyk0_0?lang=fr',
-      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/2ab491492c935632950fe7544e5a36d4~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=63619&refresh_token=7429ace1b126545f5ef6898aa4c43af8&x-expires=1733248800&x-signature=MOhe%2FnZMRbCN9G1n0eHYMaPiRNw%3D&shp=a5d48078&shcp=81f88b70',
+      image: '/public/images/ppblyk.jpeg',
       description: t('home.certifiedStreamers.blyk0.description'),
       games: ['Minecraft', 'GTA V', 'Fortnite', 'Live Interactif'],
       certified: true
@@ -94,17 +112,24 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
-              {t("home.hero.title")}
+              <TypewriterText 
+                prefix={t('home.hero.title.prefix')}
+                words={t('home.hero.title.words', { returnObjects: true }) as string[]}
+                speed={150}
+                deleteSpeed={75}
+                delayBetweenWords={3000}
+                className="inline-block"
+              />
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto">
-              {t("home.hero.subtitle")}
+              {t('home.hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/join"
                 className="inline-flex items-center px-6 sm:px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black/20 hover:bg-black/30 backdrop-blur-sm transition-colors"
               >
-                {t("home.hero.cta")} <ArrowRight className="ml-2 h-5 w-5" />
+                {t('home.hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -116,10 +141,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              {t("home.services.title")}
+              {t('home.services.title')}
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              {t("home.services.subtitle")}
+              {t('home.services.subtitle')}
             </p>
           </div>
 
@@ -143,25 +168,19 @@ const Home = () => {
       {/* Eligibility Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Title and Subtitle */}
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              {t("home.eligibility.title")}
+              {t('home.eligibility.title')}
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              {t("home.eligibility.subtitle")}
+              {t('home.eligibility.subtitle')}
             </p>
           </div>
 
-          {/* Eligibility Criteria List */}
           <div className="max-w-3xl mx-auto">
             <div className="bg-card rounded-xl p-6 sm:p-8 border border-border">
               <ul className="space-y-4">
-                {(
-                  t("home.eligibility.criteria", {
-                    returnObjects: true,
-                  }) as string[]
-                ).map((criterion, index) => (
+                {(t('home.eligibility.criteria', { returnObjects: true }) as string[]).map((criterion, index) => (
                   <li key={index} className="flex items-center text-foreground">
                     <Star className="h-5 w-5 text-tiktok-red mr-3 flex-shrink-0" />
                     <span>{criterion}</span>
@@ -178,10 +197,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              {t("home.certifiedStreamers.title")}
+              {t('home.certifiedStreamers.title')}
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              {t("home.certifiedStreamers.subtitle")}
+              {t('home.certifiedStreamers.subtitle')}
             </p>
           </div>
 
@@ -241,13 +260,13 @@ const Home = () => {
       <section className="bg-gradient-to-r from-tiktok-red to-tiktok-blue text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-            {t("home.cta.title")}
+            {t('home.cta.title')}
           </h2>
           <Link
             to="/join"
             className="inline-flex items-center px-6 sm:px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black/20 hover:bg-black/30 backdrop-blur-sm transition-colors"
           >
-            {t("home.hero.cta")} <ArrowRight className="ml-2 h-5 w-5" />
+            {t('home.hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
       </section>

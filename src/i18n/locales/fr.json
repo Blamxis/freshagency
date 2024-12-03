@@ -35,7 +35,15 @@
   },
   "home": {
     "hero": {
-      "title": "FreshAgency - Agence TikTok Gaming & Live",
+      "title": {
+        "prefix": "Agence ",
+        "words": [
+          "TikTok",
+          "Gaming",
+          "Live Interactif",
+          "Live Match"
+        ]
+      },
       "subtitle": "Propulsez votre carrière de créateur TikTok avec notre expertise en gaming et live streaming",
       "cta": "Rejoignez-nous"
     },
