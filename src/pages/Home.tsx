@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { 
-  ArrowRight, 
-  Shield, 
-  DollarSign, 
+import {
+  ArrowRight,
+  Shield,
+  DollarSign,
   UserCog,
   Calculator,
   Users2,
@@ -89,7 +89,7 @@ const Home = () => {
       name: 'Fresh Spam',
       tiktok: '@fresh_spam',
       tiktokUrl: 'https://www.tiktok.com/@fresh_spam?lang=fr',
-      image: '/public/images/freshpp.jpeg',
+      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/e471b76be3ef86ac0b7115edd253f45d~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=87323&refresh_token=32e400e6cb82fa311e34e0ec94361f2a&x-expires=1733403600&x-signature=M1mcKIY%2BL%2FklJ1hCWWwF26ID8PM%3D&shp=a5d48078&shcp=81f88b70',
       description: t('home.certifiedStreamers.freshSpam.description'),
       games: ['Minecraft', 'Live Interactif'],
       certified: true
@@ -98,7 +98,7 @@ const Home = () => {
       name: 'Blyk',
       tiktok: '@blyk0_0',
       tiktokUrl: 'https://www.tiktok.com/@blyk0_0?lang=fr',
-      image: '/public/images/blykpp.jpeg',
+      image: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/2ab491492c935632950fe7544e5a36d4~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=15082&refresh_token=304ce168d66468da0de022f0c94eeccc&x-expires=1733403600&x-signature=qJMEKf%2FkK4XkKaLkptVIRV0uGfE%3D&shp=a5d48078&shcp=81f88b70',
       description: t('home.certifiedStreamers.blyk0.description'),
       games: ['Minecraft', 'GTA V', 'Fortnite', 'Live Interactif'],
       certified: true
@@ -112,7 +112,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
-              <TypewriterText 
+              <TypewriterText
                 prefix={t('home.hero.title.prefix')}
                 words={t('home.hero.title.words', { returnObjects: true }) as string[]}
                 speed={150}
