@@ -1,0 +1,107 @@
+.cookie-consent {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #fff8e1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 15px 20px;
+    border-radius: 20px;
+    z-index: 1000;
+    font-family: "Arial", sans-serif;
+    animation: slideUp 0.5s ease;
+  }
+  
+  .cookie-consent .cookie-icon {
+    font-size: 36px;
+    animation: bounce 2s infinite;
+  }
+  
+  .cookie-consent .cookie-message {
+    flex: 1;
+  }
+  
+  .cookie-consent p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .cookie-consent .cookie-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Bouton d'acceptation */
+  .cookie-consent .cookie-button.accept {
+    background-color: #ffcc80;
+    color: #333;
+  }
+  
+  .cookie-consent .cookie-button.accept:hover {
+    background-color: #ffa726;
+  }
+  
+  /* Bouton de refus */
+  .cookie-consent .cookie-button.decline {
+    background-color: #f08080;
+    color: #fff;
+  }
+  
+  .cookie-consent .cookie-button.decline:hover {
+    background-color: #e57373;
+  }
+  
+  /* Animation */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Mobile-friendly */
+  @media (max-width: 600px) {
+    .cookie-consent {
+      width: 90%;
+      flex-wrap: wrap;
+      padding: 10px;
+    }
+  
+    .cookie-consent .cookie-message {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    .cookie-consent .cookie-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

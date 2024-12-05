@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { joinFormSchema } from "../utils/validation";
 import ImageModal from '../components/ImageModal';

@@ -152,9 +152,9 @@ const Home = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="p-6 bg-card rounded-xl border border-blue-500 hover:border-blue-300 transition-colors" // Changer border ici
+                className="p-6 bg-card rounded-xl border border-blue-500 hover:border-blue-300 transition-colors"
               >
-                <service.icon className="h-8 w-8 text-blue-500 mb-4 hover:text-blue-300" /> {/* Changer la couleur de l'icône ici */}
+                <service.icon className="h-8 w-8 text-blue-500 mb-4 hover:text-blue-300" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground">
                   {service.title}
                 </h3>
@@ -178,11 +178,11 @@ const Home = () => {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="bg-card rounded-xl p-6 sm:p-8 border border-blue-500 hover:border-blue-300 transition-colors"> {/* Changer border ici */}
+            <div className="bg-card rounded-xl p-6 sm:p-8 border border-blue-500 hover:border-blue-300 transition-colors">
               <ul className="space-y-4">
                 {(t('home.eligibility.criteria', { returnObjects: true }) as string[]).map((criterion, index) => (
                   <li key={index} className="flex items-center text-foreground">
-                    <Star className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0 hover:text-blue-300" /> {/* Changer la couleur de l'icône ici */}
+                    <Star className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0 hover:text-blue-300" />
                     <span>{criterion}</span>
                   </li>
                 ))}
@@ -208,7 +208,7 @@ const Home = () => {
             {certifiedStreamers.map((streamer, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl overflow-hidden border border-blue-500 hover:border-blue-300 transition-colors" // Changer border ici
+                className="bg-card rounded-xl overflow-hidden border border-blue-500 hover:border-blue-300 transition-colors" 
               >
                 <div className="aspect-w-16 aspect-h-9">
                   <img
