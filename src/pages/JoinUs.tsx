@@ -1,25 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { joinFormSchema } from "../utils/validation";
-import ImageModal from '../components/ImageModal';
+import { z } from "zod";
+
+// Validation Schema
+const joinFormSchema = z.object({
+  firstName: z.string().min(2).max(50),
+  lastName: z.string().min(2).max(50),
+  email: z.string().email(),
+  tiktok: z.string().optional(),
+  agencyCode: z.string().optional(),
+  referral: z.string().optional(),
+  investissement: z.string().optional(),
+  message: z.string().min(10).max(1000),
+  formType: z.enum(["creator", "brand"]),
+});
 
 const JoinUs = () => {
   const { t } = useTranslation();
   const [formType, setFormType] = useState<"creator" | "brand">("creator");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const creatorBenefits = t("join.benefits.creator.items", {
-    returnObjects: true,
-  }) as string[];
-  const brandBenefits = t("join.benefits.brand.items", {
-    returnObjects: true,
-  }) as string[];
-  const agencySteps = t("join.agencyCode.steps", {
-    returnObjects: true,
-  }) as string[];
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => setIsSubmitted(false), 3000); // Hide after 3 seconds
+      return () => clearTimeout(timer); // Cleanup the timer
+    }
+  }, [isSubmitted]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,6 +36,7 @@ const JoinUs = () => {
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
+    data.formType = formType;
 
     try {
       const validatedData = joinFormSchema.parse(data);
@@ -41,8 +51,9 @@ const JoinUs = () => {
           },
           body: JSON.stringify({
             ...validatedData,
-            formType,
-            _subject: `Nouvelle candidature - ${formType === "creator" ? "Créateur" : "Marque"}`,
+            _subject: `Nouvelle candidature - ${
+              formType === "creator" ? "Créateur" : "Marque"
+            }`,
             _template: "table",
           }),
         }
@@ -50,10 +61,14 @@ const JoinUs = () => {
 
       if (response.ok) {
         setIsSubmitted(true);
-        e.currentTarget.reset();
+        if (formRef.current) {
+          formRef.current.reset(); // Reset form fields
+        }
+      } else {
+        console.error("Erreur côté serveur :", await response.text());
       }
     } catch (error) {
-      console.error("Erreur de validation:", error);
+      console.error("Erreur de validation :", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -81,117 +96,30 @@ const JoinUs = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex justify-center space-x-4 mb-12">
               <button
-                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${formType === "creator"
-                  ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
-                  : "bg-card text-foreground hover:bg-blue-500"
-                  } border border-border`}
+                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
+                  formType === "creator"
+                    ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
+                    : "bg-card text-foreground hover:bg-blue-500"
+                } border border-border`}
                 onClick={() => setFormType("creator")}
               >
                 Créateur
               </button>
               <button
-                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${formType === "brand"
-                  ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
-                  : "bg-card text-foreground hover:bg-blue-500"
-                  } border border-border`}
+                className={`px-8 py-3 rounded-md font-medium transition-all duration-300 ${
+                  formType === "brand"
+                    ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
+                    : "bg-card text-foreground hover:bg-blue-500"
+                } border border-border`}
                 onClick={() => setFormType("brand")}
               >
                 Marque
               </button>
             </div>
 
-            {/* Benefits Section */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
-                {t(`join.benefits.${formType}.title`)}
-              </h2>
-              <div className="bg-card rounded-xl p-8 border border-border">
-                <ul className="space-y-4">
-                  {(formType === "creator"
-                    ? creatorBenefits
-                    : brandBenefits
-                  ).map((benefit, index) => (
-                    <li key={index} className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-tiktok-blue mr-3 flex-shrink-0" />
-                      <span className="text-foreground">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Agency Code Steps */}
-            {formType === "creator" && (
-              <div className="mb-12">
-                <div className="max-w-3xl mx-auto">
-                  <h2 className="text-3xl font-bold text-center mb-8">
-                    Étapes pour le code agence
-                  </h2>
-                  <div className="bg-card rounded-xl p-8 border border-border">
-                    <div className="space-y-8">
-                      {agencySteps.map((step, index) => (
-                        <div
-                          key={index}
-                          className="flex flex-col sm:flex-row items-start gap-6 relative"
-                        >
-                          <div className="flex items-center sm:items-start gap-4 w-full">
-                            <div className="relative flex flex-col items-center">
-                              <div className="w-10 h-10 bg-gradient-to-r from-tiktok-blue to-tiktok-blue text-black rounded-full flex items-center justify-center font-bold z-10">
-                                {index + 1}
-                              </div>
-                              {index !== agencySteps.length - 1 && (
-                                <div className="absolute top-10 left-1/2 w-px h-24 sm:h-32 bg-gradient-to-b from-tiktok-red/50 to-transparent -translate-x-1/2" />
-                              )}
-                            </div>
-
-                            {/* Step Content */}
-                            <div className="flex-1 min-w-0">
-                              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                                <p className="text-foreground text-lg flex-1">
-                                  {step}
-                                </p>
-                                <div className="w-full sm:w-48 h-auto flex-shrink-0">
-                                  <button
-                                    onClick={() =>
-                                      setSelectedImage(
-                                        `/images/step${index + 1}.png`
-                                      )
-                                    }
-                                    className="w-full group relative"
-                                  >
-                                    <img
-                                      src={`/images/step${index + 1}.png`}
-                                      alt={`Étape ${index + 1}`}
-                                      className="w-full rounded-lg border border-border shadow-sm group-hover:border-tiktok-red/50 transition-colors"
-                                      loading="lazy"
-                                    />
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 rounded-lg transition-colors flex items-center justify-center">
-                                      <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                                        Agrandir
-                                      </span>
-                                    </div>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Image Modal */}
-            <ImageModal
-              isOpen={!!selectedImage}
-              imageUrl={selectedImage || ""}
-              onClose={() => setSelectedImage(null)}
-            />
-
             {/* Application Form */}
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="bg-card shadow-xl rounded-xl p-8 border border-border"
             >
@@ -259,47 +187,47 @@ const JoinUs = () => {
                   <>
                     <div>
                       <label
-                        htmlFor="pseudoTikTok"
+                        htmlFor="tiktok"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
                         Pseudo TikTok
                       </label>
                       <input
                         type="text"
-                        id="pseudoTikTok"
-                        name="pseudoTikTok"
-                        placeholder="Votre pseudo TikTok"
+                        id="tiktok"
+                        name="tiktok"
+                        placeholder="@votre_compte"
                         className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                         required
                       />
                     </div>
                     <div>
                       <label
-                        htmlFor="parrain"
+                        htmlFor="referral"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
                         Parrain
                       </label>
                       <input
                         type="text"
-                        id="parrain"
-                        name="parrain"
-                        placeholder="Pseudo de votre parrain"
+                        id="referral"
+                        name="referral"
+                        placeholder="@parrain"
                         className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                         required
                       />
                     </div>
                     <div>
                       <label
-                        htmlFor="codeAgence"
+                        htmlFor="agencyCode"
                         className="block text-sm font-medium text-foreground mb-2"
                       >
                         Code Agence
                       </label>
                       <input
                         type="text"
-                        id="codeAgence"
-                        name="codeAgence"
+                        id="agencyCode"
+                        name="agencyCode"
                         placeholder="Entrez votre code agence"
                         className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
                         required
@@ -351,7 +279,7 @@ const JoinUs = () => {
                     required
                   ></textarea>
                 </div>
-                
+
                 <button
                   type="submit"
                   className="w-full py-2 px-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-md hover:bg-blue-600 transition duration-200"

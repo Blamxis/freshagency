@@ -89,7 +89,7 @@ const Home = () => {
       name: 'Fresh Spam',
       tiktok: '@fresh_spam',
       tiktokUrl: 'https://www.tiktok.com/@fresh_spam?lang=fr',
-      image: './images/freshpp.jpeg',
+      image: './images/freshpp.webp',
       description: t('home.certifiedStreamers.freshSpam.description'),
       games: ['Minecraft', 'Live Interactif'],
       certified: true
@@ -98,7 +98,7 @@ const Home = () => {
       name: 'Blyk',
       tiktok: '@blyk0_0',
       tiktokUrl: 'https://www.tiktok.com/@blyk0_0?lang=fr',
-      image: './images/blykpp.jpeg',
+      image: './images/blykpp.webp',
       description: t('home.certifiedStreamers.blyk0.description'),
       games: ['Minecraft', 'GTA V', 'Fortnite', 'Live Interactif'],
       certified: true
@@ -208,7 +208,7 @@ const Home = () => {
             {certifiedStreamers.map((streamer, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl overflow-hidden border border-blue-500 hover:border-blue-300 transition-colors" 
+                className="bg-card rounded-xl overflow-hidden border border-blue-500 hover:border-blue-300 transition-colors"
               >
                 <div className="aspect-w-16 aspect-h-9">
                   <img

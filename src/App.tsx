@@ -23,7 +23,7 @@ function App() {
           <div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
             <Helmet>
               <meta charSet="utf-8" />
-              <title>FreshAgency - Top TikTok Creator Management</title>
+              <title>FreshAgency</title>
               <meta
                 name="description"
                 content="FreshAgency est une agence de gestion de créateurs TikTok spécialisée dans le gaming et le live streaming."
