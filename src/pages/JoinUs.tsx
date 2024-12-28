@@ -30,6 +30,13 @@ const JoinUs = () => {
     }
   }, [isSubmitted]);
 
+  const creatorBenefits = t("join.benefits.creator.items", {
+    returnObjects: true,
+  }) as string[];
+  const brandBenefits = t("join.benefits.brand.items", {
+    returnObjects: true,
+  }) as string[];
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -115,6 +122,25 @@ const JoinUs = () => {
               >
                 Marque
               </button>
+            </div>
+
+            {/* Benefits Section */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
+                {t(`join.benefits.${formType}.title`)}
+              </h2>
+              <div className="bg-card rounded-xl p-8 border border-border">
+                <ul className="space-y-4">
+                  {(formType === "creator" ? creatorBenefits : brandBenefits).map(
+                    (benefit, index) => (
+                      <li key={index} className="flex items-center">
+                        <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
+                        <span className="text-foreground">{benefit}</span>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
             </div>
 
             {/* Application Form */}
