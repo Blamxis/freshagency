@@ -10,9 +10,9 @@ const joinFormSchema = z.object({
   email: z.string().email(),
   tiktok: z.string().optional(),
   agencyCode: z.string().optional(),
-  referral: z.string().optional(),
+  referral: z.string().optional(), // Parrain n'est pas obligatoire
   investissement: z.string().optional(),
-  message: z.string().min(10).max(1000),
+  message: z.string().max(1000).optional(), // Message n'est pas obligatoire
   formType: z.enum(["creator", "brand"]),
 });
 
@@ -222,9 +222,8 @@ const JoinUs = () => {
                         type="text"
                         id="tiktok"
                         name="tiktok"
-                        placeholder="@votre_compte"
+                        placeholder="votre_compte"
                         className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
-                        required
                       />
                     </div>
                     <div>
@@ -238,9 +237,8 @@ const JoinUs = () => {
                         type="text"
                         id="referral"
                         name="referral"
-                        placeholder="@parrain"
+                        placeholder="Votre parrain (optionnel)"
                         className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
-                        required
                       />
                     </div>
                     <div>
@@ -256,7 +254,6 @@ const JoinUs = () => {
                         name="agencyCode"
                         placeholder="Entrez votre code agence"
                         className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
-                        required
                       />
                     </div>
                   </>
@@ -274,7 +271,6 @@ const JoinUs = () => {
                       id="investissement"
                       name="investissement"
                       className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
-                      required
                     >
                       <option value="">Sélectionnez un montant</option>
                       <option value="0-500">0 € - 500 €</option>
@@ -300,9 +296,8 @@ const JoinUs = () => {
                     id="message"
                     name="message"
                     rows={4}
-                    placeholder="Écrivez votre message ici..."
+                    placeholder="Écrivez votre message ici... (optionnel)"
                     className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring focus:ring-blue-400 text-black"
-                    required
                   ></textarea>
                 </div>
 
