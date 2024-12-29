@@ -50,7 +50,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/mentions-legales" className="text-muted-foreground hover:text-blue-500 transition-colors">
-                    Mentions Légales
+                    {t('nav.legalNotice')}
                   </Link>
                 </li>
               </ul>

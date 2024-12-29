@@ -3,7 +3,8 @@
     "about": "About",
     "joinUs": "Join Us",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "legalNotice": "Legal Notice"
   },
   "footer": {
     "slogan": "Boost your TikTok career with gaming and live streaming experts",
@@ -11,6 +12,9 @@
     "contact": {
       "title": "Let's Connect"
     },
+    "policies": "Our Policies",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
     "rights": "All rights reserved"
   },
   "about": {
@@ -238,7 +242,7 @@
       },
       {
         "question": "Where can I contact you?",
-        "answer": "Via DM on TikTok: @fresh.agency\nWhatsApp: 0768141479\nEmail: fresh.agency@hotmail.com"
+        "answer": "Via DM on TikTok: @fresh.agency\nWhatsApp: 0768131479\nEmail: fresh.agency@hotmail.com"
       }
     ],
     "stillHaveQuestions": {

@@ -3,7 +3,8 @@
     "about": "À propos",
     "joinUs": "Nous rejoindre",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "legalNotice": "Mentions Légales"
   },
   "footer": {
     "slogan": "Propulsez votre carrière TikTok avec les experts du gaming et du live streaming",
@@ -11,6 +12,9 @@
     "contact": {
       "title": "Restons en Contact"
     },
+    "policies": "Nos Politiques",
+    "privacy": "Politique de Confidentialité",
+    "cookies": "Politique de Cookies",
     "rights": "Tous droits réservés"
   },
   "about": {
@@ -238,7 +242,7 @@
       },
       {
         "question": "Où puis-je vous contacter ?",
-        "answer": "En DM sur TikTok : @fresh.agency\nMessage whatsapp : 0768141479\nMail : Fresh.agency@hotmail.com"
+        "answer": "En DM sur TikTok : @fresh.agency\nMessage whatsapp : 0768131479\nMail : Fresh.agency@hotmail.com"
       }
     ],
     "stillHaveQuestions": {
